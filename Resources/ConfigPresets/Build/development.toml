@@ -1,34 +1,8 @@
-﻿[game]
-# Straight in-game baby
-lobbyenabled = false
-map = "NFDev"
-role_timers = false
-
-[ghost]
-role_time = 0.5
-quick_lottery = true
-
-[gateway]
-generator_enabled = false
-
-[physics]
-# Makes mapping annoying
-grid_splitting = false
-
-[procgen]
-preload = false
+﻿
+[game]
+hostname = "Genessee's Frontier Testbed"
+maxplayers = 10
 
 [salvage]
-expedition_cooldown = 30.0
-expedition_failed_cooldown = 10.0
-
-[shuttle]
-grid_fill = false
-auto_call_time = 0
-emergency = false
-arrivals = false
-preload_grids = false
-shipyard = true
-
-[admin]
-see_own_notes = true
+expedition_cooldown = 1.0
+expedition_failed_cooldown = 1.0

@@ -1,6 +1,15 @@
 ﻿[events]
 # Annoying
-enabled = false
+enabled = true
 
 [shuttle]
 auto_call_time = 0
+
+[game]
+hostname = "Genessee's Frontier Debug-zone"
+maxplayers = 10
+role_timers = false
+
+[salvage]
+expedition_cooldown = 30.0
+expedition_failed_cooldown = 10.0
