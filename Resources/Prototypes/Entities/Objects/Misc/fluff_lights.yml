@@ -51,8 +51,6 @@
     canCollide: false
   - type: StealTarget
     stealGroup: LAMP
-  - type: StaticPrice
-    price: 5
 
 - type: entity
   name: lamp
@@ -133,7 +131,7 @@
 - type: entity
   name: interrogator lamp
   id: LampInterrogator
-  parent: BaseLamp
+  parent: BaseLamp # Frontier: removed BaseRestrictedContraband
   description: Ultra-bright lamp for the bad cop.
   components:
   - type: Sprite
@@ -239,8 +237,6 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: StaticPrice
-    price: 75
 
 - type: entity
   name: broken floodlight
@@ -273,7 +269,7 @@
       - !type:SpawnEntitiesBehavior
         spawn:
           SheetSteel1:
-            min: 0 # Frontier: 1<0
+            min: 1
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -286,8 +282,4 @@
           bounds: "-0.2, -0.5, 0.2, 0.5"
         density: 50
         mask:
-        - MachineMask
-        layer:
-        - MachineLayer
-  - type: StaticPrice # Frontier
-    price: 6 # Frontier: TODO - tests at 6
+        - HighImpassable

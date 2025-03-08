@@ -5,11 +5,13 @@ using Content.Server._NF.SectorServices;
 using Content.Server._NF.Smuggling.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Radio.EntitySystems;
-using Content.Server.Shipyard.Systems;
+using Content.Server._NF.Shipyard.Systems;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Server.StationEvents.Events;
+using Content.Server.Warps;
 using Content.Shared._NF.CCVar;
 using Content.Shared._NF.Smuggling.Prototypes;
 using Content.Shared.Database;
@@ -26,6 +28,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Server._NF.Station.Systems;
 
 namespace Content.Server._NF.Smuggling;
 
@@ -47,6 +50,8 @@ public sealed class DeadDropSystem : EntitySystem
     [Dependency] private readonly SectorServiceSystem _sectorService = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly SharedGameTicker _ticker = default!;
+    [Dependency] private readonly LinkedLifecycleGridSystem _linkedLifecycleGrid = default!;
+    [Dependency] private readonly StationRenameWarpsSystems _stationRenameWarps = default!;
     private ISawmill _sawmill = default!;
 
     private readonly Queue<EntityUid> _drops = [];
@@ -466,6 +471,13 @@ public sealed class DeadDropSystem : EntitySystem
             return;
         }
 
+        var stationName = Loc.GetString(component.Name);
+
+        var meta = EnsureComp<MetaDataComponent>(gridUids[0]);
+        _meta.SetEntityName(gridUids[0], stationName, meta);
+
+        _stationRenameWarps.SyncWarpPointsToGrids(gridUids, forceAdminOnly: true);
+
         // Get sector info (with sane defaults if it doesn't exist)
         int maxSimultaneousPods = 5;
         int deadDropsThisHour = 0;
@@ -490,7 +502,7 @@ public sealed class DeadDropSystem : EntitySystem
                 //removes the first element of the queue
                 var entityToRemove = _drops.Dequeue();
                 _adminLogger.Add(LogType.Action, LogImpact.Medium, $"{entityToRemove} queued for deletion");
-                EntityManager.QueueDeleteEntity(entityToRemove);
+                _linkedLifecycleGrid.UnparentPlayersFromGrid(entityToRemove, true);
             }
         }
 
@@ -579,15 +591,26 @@ public sealed class DeadDropSystem : EntitySystem
                         output = Loc.GetString(messageLoc, ("location", MetaData(sender).EntityName));
                         break;
                     case SmugglingReportMessageType.DeadDropStationWithRandomAlt:
+                        var actualStationName = MetaData(sender).EntityName;
                         if (sectorDeadDrop is not null)
                         {
-                            string[] names = [MetaData(sender).EntityName, _random.Pick<string>(sectorDeadDrop.DeadDropStationNames.Values)];
-                            _random.Shuffle(names);
-                            output = Loc.GetString(messageLoc, ("location1", names[0]), ("location2", names[1]));
+                            var otherStationList = sectorDeadDrop.DeadDropStationNames.Values.Where(x => x != actualStationName).ToList();
+                            if (otherStationList.Count > 0)
+                            {
+                                string[] names = [actualStationName, _random.Pick<string>(otherStationList)];
+                                _random.Shuffle(names);
+                                output = Loc.GetString(messageLoc, ("location1", names[0]), ("location2", names[1]));
+                            }
+                            else
+                            {
+                                // No valid alternate, just output where the dead drop is
+                                output = Loc.GetString(messageLoc, ("location1", actualStationName));
+                            }
                         }
                         else
                         {
-                            output = Loc.GetString(messageLoc, ("location1", MetaData(sender).EntityName)); // Looks strange, but still has a proper value.
+                            // No valid alternate, just output where the dead drop is
+                            output = Loc.GetString(messageLoc, ("location1", actualStationName));
                         }
                         break;
                     case SmugglingReportMessageType.PodLocation:
@@ -611,7 +634,7 @@ public sealed class DeadDropSystem : EntitySystem
         }
     }
 
-    // Generates a random hint from a given set of entities (grabs the first N, N randomly generated between min/max), 
+    // Generates a random hint from a given set of entities (grabs the first N, N randomly generated between min/max),
     public string GenerateRandomHint(List<(EntityUid station, EntityUid ent)>? entityList = null)
     {
         if (entityList == null)

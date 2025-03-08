@@ -1,6 +1,6 @@
 ﻿- type: entity
   name: shuttle records console
-  parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, BaseComputer]
+  parent: [BaseStructureDisableToolUse, BaseStructureIndestructible, BaseStructureAccessReaderImmuneToEmag, BaseComputer]
   id: ComputerShuttleRecordsBase
   description: Used to browse shuttle records and recover or reassign shuttle ownership to IDs.
   abstract: true
@@ -13,7 +13,7 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: shipyard
+      state: shuttle_records
     - map: ["computerLayerKeys"]
       state: telesci_key
   - type: ShuttleRecordsConsole
@@ -36,6 +36,8 @@
   - type: ItemSlots
   - type: ContainerContainer
     containers:
+      board: !type:Container
+        ents: []
       ShuttleRecordsConsole-targetId: !type:ContainerSlot {}
   - type: AccessReader
     access: [[ "HeadOfPersonnel" ]]
@@ -46,3 +48,4 @@
   id: ComputerShuttleRecords
   components:
   - type: ShuttleRecordsConsole
+    account: Frontier

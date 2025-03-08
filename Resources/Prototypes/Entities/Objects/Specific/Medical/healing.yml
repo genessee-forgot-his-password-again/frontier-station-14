@@ -327,7 +327,7 @@
   suffix: DO NOT MAP
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/healing_toolbox.rsi
+    sprite: _NF/Objects/Specific/Medical/healing_toolbox.rsi # Frontier: _NF prefix
     state: icon
   - type: Healing
     damageContainers:
@@ -1036,7 +1036,7 @@
   id: SyringeStimulants
   components:
   - type: Label
-    currentLabel: reagent-name-hyperzine
+    currentLabel: reagent-name-stimulants
   - type: SolutionContainerManager
     solutions:
       injector:

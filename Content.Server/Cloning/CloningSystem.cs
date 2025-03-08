@@ -38,9 +38,10 @@ using Robust.Shared.Random;
 using Content.Shared.Emag.Systems;
 using Content.Server.Popups;
 using Content.Server.Traits.Assorted;
-using Content.Shared._NF.Cloning;
-using Content.Shared.Bank.Components;
 using Robust.Shared.Serialization.Manager;
+using Content.Shared._NF.Cloning; // Frontier
+using Content.Shared._NF.Bank.Components; // Frontier
+using Content.Server._NF.Traits.Assorted; // Frontier
 
 namespace Content.Server.Cloning
 {
@@ -68,8 +69,8 @@ namespace Content.Server.Cloning
         [Dependency] private readonly SharedMindSystem _mindSystem = default!;
         [Dependency] private readonly MetaDataSystem _metaSystem = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
-        // Frontier
-        [Dependency] private readonly ISerializationManager _serialization = default!;
+        [Dependency] private readonly EmagSystem _emag = default!;
+        [Dependency] private readonly ISerializationManager _serialization = default!; // Frontier
 
         public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
         public const float EasyModeCloningCost = 0.7f;
@@ -87,6 +88,7 @@ namespace Content.Server.Cloning
             SubscribeLocalEvent<CloningPodComponent, AnchorStateChangedEvent>(OnAnchor);
             SubscribeLocalEvent<CloningPodComponent, ExaminedEvent>(OnExamined);
             SubscribeLocalEvent<CloningPodComponent, GotEmaggedEvent>(OnEmagged);
+            SubscribeLocalEvent<CloningPodComponent, GotUnEmaggedEvent>(OnUnemagged); // Frontier
         }
 
         private void OnComponentInit(EntityUid uid, CloningPodComponent clonePod, ComponentInit args)
@@ -95,20 +97,22 @@ namespace Content.Server.Cloning
             _signalSystem.EnsureSinkPorts(uid, CloningPodComponent.PodPort);
         }
 
+        // Frontier: machine parts upgrades
         private void OnPartsRefreshed(EntityUid uid, CloningPodComponent component, RefreshPartsEvent args)
         {
             var materialRating = args.PartRatings[component.MachinePartMaterialUse];
             var speedRating = args.PartRatings[component.MachinePartCloningSpeed];
 
-            component.BiomassRequirementMultiplier = MathF.Pow(component.PartRatingMaterialMultiplier, materialRating - 1);
+            component.BiomassRequirementMultiplier = component.BaseBiomassRequirementMultiplier * MathF.Pow(component.PartRatingMaterialMultiplier, materialRating - 1);
             component.CloningTime = component.BaseCloningTime * MathF.Pow(component.PartRatingSpeedMultiplier, speedRating - 1);
         }
 
         private void OnUpgradeExamine(EntityUid uid, CloningPodComponent component, UpgradeExamineEvent args)
         {
             args.AddPercentageUpgrade("cloning-pod-component-upgrade-speed", component.BaseCloningTime / component.CloningTime);
-            args.AddPercentageUpgrade("cloning-pod-component-upgrade-biomass-requirement", component.BiomassRequirementMultiplier);
+            args.AddPercentageUpgrade("cloning-pod-component-upgrade-biomass-requirement", component.BiomassRequirementMultiplier / component.BaseBiomassRequirementMultiplier);
         }
+        // End Frontier
 
         internal void TransferMindToClone(EntityUid mindId, MindComponent mind)
         {
@@ -204,12 +208,12 @@ namespace Content.Server.Cloning
                 cloningCost = (int) Math.Round(cloningCost * EasyModeCloningCost);
 
             // Check if they have the uncloneable trait
-            if (TryComp<UncloneableComponent>(bodyToClone, out _))
+            if (TryComp<UncloneableComponent>(bodyToClone, out var uncloneable))
             {
                 if (clonePod.ConnectedConsole != null)
                 {
                     _chatSystem.TrySendInGameICMessage(clonePod.ConnectedConsole.Value,
-                        Loc.GetString("cloning-console-uncloneable-trait-error"),
+                        Loc.GetString(uncloneable.ReasonMessage),
                         InGameICChatType.Speak, false);
                 }
 
@@ -289,7 +293,7 @@ namespace Content.Server.Cloning
 
             // TODO: Ideally, components like this should be components on the mind entity so this isn't necessary.
             // Add on special job components to the mob.
-            if (_jobs.MindTryGetJob(mindEnt, out _, out var prototype))
+            if (_jobs.MindTryGetJob(mindEnt, out var prototype))
             {
                 foreach (var special in prototype.Special)
                 {
@@ -334,13 +338,35 @@ namespace Content.Server.Cloning
         /// </summary>
         private void OnEmagged(EntityUid uid, CloningPodComponent clonePod, ref GotEmaggedEvent args)
         {
+            if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+                return;
+
+            if (_emag.CheckFlag(uid, EmagType.Interaction))
+                return;
+
             if (!this.IsPowered(uid, EntityManager))
                 return;
 
-            _audio.PlayPvs(clonePod.SparkSound, uid);
             _popupSystem.PopupEntity(Loc.GetString("cloning-pod-component-upgrade-emag-requirement"), uid);
             args.Handled = true;
         }
+
+        // Frontier: demag
+        private void OnUnemagged(EntityUid uid, CloningPodComponent clonePod, ref GotUnEmaggedEvent args)
+        {
+            if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+                return;
+
+            if (!_emag.CheckFlag(uid, EmagType.Interaction))
+                return;
+
+            if (!this.IsPowered(uid, EntityManager))
+                return;
+
+            _popupSystem.PopupEntity(Loc.GetString("cloning-pod-component-upgrade-emag-requirement"), uid);
+            args.Handled = true;
+        }
+        // End Frontier
 
         public void Eject(EntityUid uid, CloningPodComponent? clonePod)
         {
@@ -367,7 +393,7 @@ namespace Content.Server.Cloning
             var indices = _transformSystem.GetGridTilePositionOrDefault((uid, transform));
             var tileMix = _atmosphereSystem.GetTileMixture(transform.GridUid, null, indices, true);
 
-            if (HasComp<EmaggedComponent>(uid))
+            if (_emag.CheckFlag(uid, EmagType.Interaction))
             {
                 _audio.PlayPvs(clonePod.ScreamSound, uid);
                 Spawn(clonePod.MobSpawnId, transform.Coordinates);
@@ -385,7 +411,7 @@ namespace Content.Server.Cloning
             }
             _puddleSystem.TrySpillAt(uid, bloodSolution, out _);
 
-            if (!HasComp<EmaggedComponent>(uid))
+            if (!_emag.CheckFlag(uid, EmagType.Interaction))
             {
                 _material.SpawnMultipleFromMaterial(_robustRandom.Next(1, (int) (clonePod.UsedBiomass / 2.5)), clonePod.RequiredMaterial, Transform(uid).Coordinates);
             }

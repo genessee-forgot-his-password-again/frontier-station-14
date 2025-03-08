@@ -59,6 +59,9 @@
     energy: 1
     mask: /Textures/Effects/LightMasks/cone.png
     color: "#47f8ff"
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4.5
+    baseSprintSpeed : 4.5
 
 # Variations
 ## Tier 1
@@ -238,7 +241,7 @@
     - sprite: Clothing/OuterClothing/Hardsuits/spatio.rsi
       state: equipped-OUTERCLOTHING
     # Weapons
-    - sprite: Objects/Weapons/Melee/crusher_glaive.rsi
+    - sprite: Objects/Weapons/Melee/crusher_glaive-inhands.rsi
       state: wielded-inhand-right
     # Fluff
   - type: MeleeWeapon
@@ -514,6 +517,7 @@
   - MobHostileBossBase
   - MobExplorerBase
   - MobHumanoidHostileAISimpleMelee
+  - NFMobBossRestrictions
   id: MobExplorerBoss
   description: Fearless and battle-hardened salvage team leaders, it takes years picking through the darkest corners of space and navigating the galaxy's criminal underbelly of the galaxy before you can become a captain. Not to be underestimated.
   categories: [ HideSpawnMenu ]
@@ -581,6 +585,8 @@
     rules: ghost-role-information-dungeon-boss-rules
     raffle:
       settings: default
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
   - type: GhostTakeoverAvailable
   - type: ActionGun
     action: ActionSeismicCharge

@@ -33,11 +33,8 @@ using Content.Server.Station.Systems;
 using Content.Shared.Humanoid;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Player;
-using Content.Shared.Coordinates;
-using Content.Shared.Body.Components; // Frontier - Gib organs
-using Robust.Shared.Utility;
-using Robust.Shared.Timing;
+using Content.Shared.Body.Components; // Frontier: Gib organs
+using Content.Shared.Projectiles; // Frontier: embed triggers
 
 namespace Content.Server.Explosion.EntitySystems
 {
@@ -103,6 +100,7 @@ namespace Content.Server.Explosion.EntitySystems
             SubscribeLocalEvent<TriggerOnSlipComponent, SlipEvent>(OnSlipTriggered);
             SubscribeLocalEvent<TriggerWhenEmptyComponent, OnEmptyGunShotEvent>(OnEmptyTriggered);
             SubscribeLocalEvent<RepeatingTriggerComponent, MapInitEvent>(OnRepeatInit);
+            SubscribeLocalEvent<TriggerOnProjectileHitComponent, ProjectileHitEvent>(OnProjectileHitEvent); // Frontier: trigger on embed
 
             SubscribeLocalEvent<SpawnOnTriggerComponent, TriggerEvent>(OnSpawnTrigger);
             SubscribeLocalEvent<DeleteOnTriggerComponent, TriggerEvent>(HandleDeleteTrigger);
@@ -131,7 +129,7 @@ namespace Content.Server.Explosion.EntitySystems
 
         private void HandleShockTrigger(Entity<ShockOnTriggerComponent> shockOnTrigger, ref TriggerEvent args)
         {
-            if (!_container.TryGetContainingContainer(shockOnTrigger, out var container))
+            if (!_container.TryGetContainingContainer(shockOnTrigger.Owner, out var container))
                 return;
 
             var containerEnt = container.Owner;
@@ -319,6 +317,13 @@ namespace Content.Server.Explosion.EntitySystems
         {
             Trigger(uid, args.EmptyGun);
         }
+
+        // Frontier: embed triggers
+        private void OnProjectileHitEvent(EntityUid uid, TriggerOnProjectileHitComponent component, ref ProjectileHitEvent args)
+        {
+            Trigger(uid, args.Target);
+        }
+        // End Frontier
 
         private void OnRepeatInit(Entity<RepeatingTriggerComponent> ent, ref MapInitEvent args)
         {

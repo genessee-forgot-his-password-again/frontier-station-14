@@ -26,9 +26,6 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnum
-  - type: Icon # Frontier
-    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi # Frontier
-    state: icon # Frontier
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
     layers:
@@ -49,14 +46,13 @@
   components:
   - type: BallisticAmmoProvider
     proto: null
-  - type: Icon # Frontier
-    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi # Frontier
-    state: base # Frontier
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
+      - state: base-6 # Frontier
+        map: [ "enum.GunVisualLayers.Mag" ] # Frontier
 
 - type: entity
   id: SpeedLoaderMagnumIncendiary
@@ -73,9 +69,6 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumPractice
-  - type: Icon # Frontier
-    sprite: _NF/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi # Frontier
-    state: practice-icon # Frontier
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
     layers:
@@ -96,9 +89,6 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumAP
-  - type: Icon # Frontier
-    sprite: _NF/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi # Frontier
-    state: piercing-icon # Frontier
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
     layers:
@@ -119,9 +109,6 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumUranium
-  - type: Icon # Frontier
-    sprite: _NF/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi # Frontier
-    state: uranium-icon # Frontier
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
     layers:
