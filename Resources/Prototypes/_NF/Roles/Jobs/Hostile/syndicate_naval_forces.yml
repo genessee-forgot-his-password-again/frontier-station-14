@@ -436,7 +436,7 @@
 #    mask: ClothingMaskGasSyndicate
     neck: BedsheetSyndie
     jumpsuit: ClothingUniformJumpsuitSyndieFormalNF
-    outerClothing: ClothingOuterHardsuitSyndieEliteUnremoveable
+    outerClothing: ClothingOuterHardsuitSyndieElite
     head: ClothingHeadHelmetHardsuitSyndieEliteUnremoveable
     gloves: ClothingHandsGlovesColorBlackAK
     shoes: ClothingShoesBootsMagSyndie
@@ -450,7 +450,7 @@
   equipment:
 #    mask: ClothingMaskGasSyndicate
     jumpsuit: ClothingUniformJumpsuitSyndieFormalNF
-    outerClothing: ClothingOuterHardsuitSyndieEliteUnremoveable
+    outerClothing: ClothingOuterHardsuitSyndieElite
     head: ClothingHeadHelmetHardsuitSyndieEliteUnremoveable
     gloves: ClothingHandsGlovesColorBlackAK
     shoes: ClothingShoesBootsMagSyndie
@@ -465,7 +465,7 @@
 #    mask: ClothingMaskGasSyndicate
     neck: BedsheetSyndie
     jumpsuit: ClothingUniformJumpsuitSyndieFormalNF
-    outerClothing: ClothingOuterHardsuitSyndieBloodRedUnremoveable
+    outerClothing: ClothingOuterHardsuitSyndieBloodRed
     head: ClothingHeadHelmetHardsuitSyndieUnremoveable
     gloves: ClothingHandsGlovesColorBlackAK
     shoes: ClothingShoesBootsMagSyndie
@@ -479,7 +479,7 @@
   equipment:
 #    mask: ClothingMaskGasSyndicate
     jumpsuit: ClothingUniformJumpsuitSyndieFormalNF
-    outerClothing: ClothingOuterHardsuitSyndieBloodRedUnremoveable
+    outerClothing: ClothingOuterHardsuitSyndieBloodRed
     head: ClothingHeadHelmetHardsuitSyndieUnremoveable
     gloves: ClothingHandsGlovesColorBlackAK
     shoes: ClothingShoesBootsMagSyndie
@@ -651,14 +651,14 @@
 - type: startingGear
   id: SyndicateNavalOperatorVoidGear
   equipment:
-    head: ClothingHeadHelmetHardsuitSyndieUnremoveable
+    head: ClothingHeadHelmetHardsuitSyndieUnremovable
     jumpsuit: ClothingUniformJumpsuitOperative
     back: ClothingBackpackSyndicateOperativeLootA
     shoes: ClothingShoesBootsMagSyndie
     gloves: ClothingHandsGlovesColorBlackSMG
     belt: ClothingBeltMilitaryWebbing
 #    mask: ClothingMaskGasSyndicate
-    outerClothing: ClothingOuterHardsuitSyndieBloodRedUnremoveable
+    outerClothing: ClothingOuterHardsuitSyndieBloodRed
   inhand:
     - KukriKnife
 
@@ -673,7 +673,7 @@
     eyes: ClothingEyesGlassesSunglasses
     belt: ClothingBeltMilitaryWebbing
 #    mask: ClothingMaskNeckGaiter
-    outerClothing: ClothingOuterHardsuitSyndieBloodRedUnremoveable
+    outerClothing: ClothingOuterHardsuitSyndieBloodRed
     back: ClothingBackpackSyndicateSecondOfficerLootA
   inhand:
     - Machete
@@ -688,7 +688,7 @@
     gloves: ClothingHandsGlovesColorBlackPython
     neck: ClothingNeckScarfStripedSyndieRed
 #    mask: ClothingMaskGasSyndicate
-    outerClothing: ClothingOuterHardsuitSyndieEliteUnremoveable
+    outerClothing: ClothingOuterHardsuitSyndieElite
     back: ClothingBackpackSyndicateCaptainLootB
     pocket2: DoubleEmergencyAirTankFilled
   inhand:
