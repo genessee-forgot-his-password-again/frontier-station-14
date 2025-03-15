@@ -10,6 +10,9 @@
   id: MobMercenaryBase
   description: A mercenary, merc, soldier of fortune, hired gun, dog of war.
   components:
+  - type: Body
+    prototype: HumanSyntheticOrgans # New set of synthetic organs grants faster removal of toxins from bloodstream
+    requiredLegs: 2
   - type: Damageable
     damageModifierSet: MobMercenaryDamageModifierSet
   - type: NpcFactionMember
@@ -77,11 +80,6 @@
   - type: Loadout
     prototypes:
     - MobHumanoidMercenaryGearMeleeT1
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - sprite: _NF/Mobs/Species/Templates/human.rsi
-      state: human
   - type: MeleeWeapon
     attackRate: 1.0
     altDisarm: false
@@ -105,11 +103,6 @@
   - type: Loadout
     prototypes:
     - MobHumanoidMercenaryGearRangedT1
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - sprite: _NF/Mobs/Species/Templates/human.rsi
-      state: human
   - type: BasicEntityAmmoProvider
     proto: BulletPistol
     capacity: 4
@@ -132,11 +125,6 @@
   - type: Loadout
     prototypes:
     - MobHumanoidMercenaryGearRangedAltT1
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - sprite: _NF/Mobs/Species/Templates/human.rsi
-      state: human
   - type: BasicEntityAmmoProvider
     proto: CartridgeRifle
     capacity: 10
@@ -164,11 +152,6 @@
   - type: Loadout
     prototypes:
     - MobHumanoidMercenaryGearMeleeT2
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - sprite: _NF/Mobs/Species/Templates/human.rsi
-      state: human
   - type: MeleeWeapon
     attackRate: 1.0
     altDisarm: false
@@ -191,11 +174,6 @@
   - type: Loadout
     prototypes:
     - MobHumanoidMercenaryGearRangedT2
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - sprite: _NF/Mobs/Species/Templates/human.rsi
-      state: human
   - type: BasicEntityAmmoProvider
     proto: CartridgeRifle
     capacity: 8
@@ -220,11 +198,6 @@
   - type: Loadout
     prototypes:
     - MobHumanoidMercenaryGearRangedAltT2
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - sprite: _NF/Mobs/Species/Templates/human.rsi
-      state: human
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 2
     rechargeSound:
@@ -254,11 +227,6 @@
   - type: Loadout
     prototypes:
     - MobHumanoidMercenaryGearRangedT3
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - sprite: _NF/Mobs/Species/Templates/human.rsi
-      state: human
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
     fireCost: 100
@@ -300,11 +268,6 @@
   - type: Loadout
     prototypes:
     - MobHumanoidMercenaryGearRangedT3Alt
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - sprite: _NF/Mobs/Species/Templates/human.rsi
-      state: human
   - type: BasicEntityAmmoProvider
     proto: CartridgeRifle
     capacity: 2
@@ -334,11 +297,6 @@
   - type: Loadout
     prototypes:
     - MobHumanoidMercenaryGearTier4Captain
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - sprite: _NF/Mobs/Species/Templates/human.rsi
-      state: human
   - type: BasicEntityAmmoProvider
     proto: CartridgeMagnum
     capacity: 10
