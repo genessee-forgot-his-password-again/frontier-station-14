@@ -10,9 +10,10 @@
     outerClothing: ClothingOuterVestWebMercenary
     head: ClothingHeadHelmetMercenary
     jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
+    neck: ClothingNeckIFFGreen
   inhand:
     - Truncheon
-    - RiotShield
+    - MakeshiftShield
 
 - type: startingGear
   id: MobHumanoidMercenaryGearRangedT1
@@ -25,6 +26,7 @@
     head: ClothingHeadHelmetMercenary
     jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
     mask: ClothingMaskGasMercenary
+    neck: ClothingNeckIFFGreen
 
 - type: startingGear
   id: MobHumanoidMercenaryGearRangedAltT1
@@ -37,15 +39,24 @@
     head: ClothingHeadHelmetMercenary
     jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
     mask: ClothingMaskGasMercenary
+    neck: ClothingNeckIFFGreen
 
 # Tier 2
 - type: startingGear
   id: MobHumanoidMercenaryGearMeleeT2
   equipment:
-    gloves: ClothingHandsGlovesColorMercMachete
-    pocket1: Machete
     pocket2: SpaceCash1000
-    shoes: ClothingShoesBootsCombat
+    gloves: ClothingHandsMercenaryGlovesCombat
+    shoes: ClothingShoesBootsMercenary
+    mask: ClothingMaskGasMercenary
+    belt: ClothingBeltMercenaryWebbing
+    outerClothing: ClothingOuterVestWebMercenary
+    head: ClothingHeadHelmetMercenary
+    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
+    neck: ClothingNeckIFFGreen
+  inhand:
+    - Machete
+    - RiotShield
 
 - type: startingGear
   id: MobHumanoidMercenaryGearRangedT2
@@ -53,7 +64,12 @@
     gloves: ClothingHandsGlovesColorMercRevolvers
     back: ClothingBackpackDuffelMecranaryTier2Revolver
     belt: ClothingBeltWebbingMecranaryTier2Revolver
-    shoes: ClothingShoesBootsCombat
+    shoes: ClothingShoesBootsMercenary
+    outerClothing: ClothingOuterVestWebMercenary
+    head: ClothingHeadHelmetMercenary
+    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
+    mask: ClothingMaskGasMercenary
+    neck: ClothingNeckIFFGreen
 
 - type: startingGear
   id: MobHumanoidMercenaryGearRangedAltT2
@@ -61,7 +77,12 @@
     gloves: ClothingHandsGlovesColorMercShotgun
     back: ClothingBackpackDuffelMecranaryTier2Shotgun
     belt: ClothingBeltWebbingMecranaryTier2Shotgun
-    shoes: ClothingShoesBootsCombat
+    shoes: ClothingShoesBootsMercenary
+    outerClothing: ClothingOuterVestWebMercenary
+    head: ClothingHeadHelmetMercenary
+    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
+    mask: ClothingMaskGasMercenary
+    neck: ClothingNeckIFFGreen
 
 # Tier 3
 - type: startingGear
@@ -70,7 +91,12 @@
     gloves: ClothingHandsGlovesColorMercLaserNSaw
     back: ClothingBackpackDuffelMecranaryTier3Medic
     belt: ClothingBeltMecranaryTier3Medic
-    shoes: ClothingShoesBootsCombat
+    shoes: ClothingShoesBootsMercenary
+    outerClothing: ClothingOuterVestWebMercenary
+    head: ClothingHeadHelmetMercenary
+    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
+    mask: ClothingMaskGasMercenary
+    neck: ClothingNeckIFFGreen
 
 - type: startingGear
   id: MobHumanoidMercenaryGearRangedT3Alt
@@ -78,7 +104,12 @@
     gloves: ClothingHandsGlovesColorMercGestio
     back: ClothingBackpackDuffelMecranaryTier3Assault
     belt: ClothingBeltMecranaryTier3Assault
-    shoes: ClothingShoesBootsCombat
+    shoes: ClothingShoesBootsMercenary
+    outerClothing: ClothingOuterVestWebMercenary
+    head: ClothingHeadHelmetMercenary
+    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
+    mask: ClothingMaskGasMercenary
+    neck: ClothingNeckIFFGreen
 
 # Tier 4
 - type: startingGear
@@ -86,4 +117,9 @@
   equipment:
     gloves: ClothingHandsGlovesColorMercRepeater
     back: ClothingBackpackDuffelMecranaryTier4Captain
-    shoes: ClothingShoesBootsCombat
+    shoes: ClothingShoesBootsMercenary
+    outerClothing: ClothingOuterVestWebMercenary
+    head: ClothingHeadHelmetMercenary
+    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
+    mask: ClothingMaskGasMercenary
+    neck: ClothingNeckIFFGreen
