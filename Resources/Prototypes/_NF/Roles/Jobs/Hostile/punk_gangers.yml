@@ -2,12 +2,13 @@
 - type: startingGear
   id: PunkGangerGearMeleeT1
   equipment:
-    neck: PunkHandsGlovesBaseballBat
     jumpsuit: ClothingUniformRandomPunkCroptop
     belt: ClothingBeltPunkRandomized
     shoes: ClothingShoesBootsPunkRandomized
     outerClothing: ClothingOuterCoatBomberRandomized
     pocket2: ClothingBackpackPunkLootA
+  inhand:
+    - BaseBallBat
 
 - type: startingGear
   id: PunkGangerGearPistol
@@ -24,12 +25,13 @@
 - type: startingGear
   id: PunkGangerGearMeleeT2
   equipment:
-    neck: PunkHandsGlovesFireaxe
     jumpsuit: ClothingUniformRandomPunkCroptop
     belt: ClothingBeltPunkRandomized
     shoes: ClothingShoesBootsPunkRandomized
     outerClothing: ClothingOuterArmorPunkRandomized
     pocket2: ClothingBackpackPunkLootA
+  inhand:
+    - FireAxe
 
 - type: startingGear
   id: PunkGangerGearShotgun
@@ -46,7 +48,6 @@
 - type: startingGear
   id: PunkGangerGearMeleeT3
   equipment:
-    neck: PunkHandsGlovesSledgehammer
     eyes: ClothingEyesPunkGoggles
     mask: ClothingMaskPunkHalf
     jumpsuit: ClothingUniformRandomPunkTanktop
@@ -54,6 +55,8 @@
     shoes: ClothingShoesBootsPunkRandomized
     outerClothing: ClothingOuterArmorElitePunkRandomized
     pocket2: ClothingBackpackPunkLootA
+  inhand:
+    - Sledgehammer
 
 - type: startingGear
   id: PunkGangerGearSmg
