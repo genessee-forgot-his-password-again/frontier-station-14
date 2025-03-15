@@ -9,7 +9,7 @@
     belt: ClothingBeltMercenaryWebbing
     outerClothing: ClothingOuterVestWebMercenary
     head: ClothingHeadHelmetMercenary
-    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
+    jumpsuit: ClothingUniformJumpsuitMercenary
     neck: ClothingNeckIFFGreen
   inhand:
     - Truncheon
@@ -24,20 +24,20 @@
     shoes: ClothingShoesBootsMercenary
     outerClothing: ClothingOuterVestWebMercenary
     head: ClothingHeadHelmetMercenary
-    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
+    jumpsuit: ClothingUniformJumpsuitMercenary
     mask: ClothingMaskGasMercenary
     neck: ClothingNeckIFFGreen
 
 - type: startingGear
   id: MobHumanoidMercenaryGearRangedAltT1
   equipment:
-    gloves: ClothingHandsGlovesColorMercNovalite
+    gloves: ClothingHandsMercenaryGlovesCombat
     back: ClothingBackpackDuffelMecranaryTier1Novalite
     belt: ClothingBeltWebbingMecranaryTier1Novalite
     shoes: ClothingShoesBootsMercenary
     outerClothing: ClothingOuterVestWebMercenary
     head: ClothingHeadHelmetMercenary
-    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
+    jumpsuit: ClothingUniformJumpsuitMercenary
     mask: ClothingMaskGasMercenary
     neck: ClothingNeckIFFGreen
 
