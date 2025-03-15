@@ -2,12 +2,16 @@
 - type: startingGear
   id: MobHumanoidMercenaryGearMeleeT1
   equipment:
-    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
     pocket1: SpaceCash500
     gloves: ClothingHandsMercenaryGlovesCombat
     shoes: ClothingShoesBootsMercenary
+    mask: ClothingMaskGasMercenary
+    belt: ClothingBeltMercenaryWebbing
+    outerClothing: ClothingOuterVestWebMercenary
+    head: ClothingHeadHelmetMercenary
+    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
   inhand:
-    - HydroponicsToolHatchet
+    - Truncheon
     - RiotShield
 
 - type: startingGear
@@ -17,6 +21,10 @@
     back: ClothingBackpackDuffelMecranaryTier1Pistol
     belt: ClothingBeltWebbingMecranaryTier1Pistol
     shoes: ClothingShoesBootsMercenary
+    outerClothing: ClothingOuterVestWebMercenary
+    head: ClothingHeadHelmetMercenary
+    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
+    mask: ClothingMaskGasMercenary
 
 - type: startingGear
   id: MobHumanoidMercenaryGearRangedAltT1
@@ -25,6 +33,10 @@
     back: ClothingBackpackDuffelMecranaryTier1Novalite
     belt: ClothingBeltWebbingMecranaryTier1Novalite
     shoes: ClothingShoesBootsMercenary
+    outerClothing: ClothingOuterVestWebMercenary
+    head: ClothingHeadHelmetMercenary
+    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
+    mask: ClothingMaskGasMercenary
 
 # Tier 2
 - type: startingGear
