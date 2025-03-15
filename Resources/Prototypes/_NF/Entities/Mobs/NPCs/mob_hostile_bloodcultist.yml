@@ -3,7 +3,6 @@
   abstract: true
   parent:
   - MobHumanoidHostileBase
-  - MobHumanoidInvetory
   - NFMobRestrictions
   id: MobBloodCultistBase
   components:
