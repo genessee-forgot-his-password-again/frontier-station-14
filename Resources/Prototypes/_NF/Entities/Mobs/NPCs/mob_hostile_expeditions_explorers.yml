@@ -3,8 +3,7 @@
   name: explorer
   abstract: true
   parent:
-  - MobNonHumanHostileBase
-  - MobHumanoidInvetory
+  - MobHumanoidHostileBase
   - NFMobRestrictions
   id: MobExplorerBase
   components:
