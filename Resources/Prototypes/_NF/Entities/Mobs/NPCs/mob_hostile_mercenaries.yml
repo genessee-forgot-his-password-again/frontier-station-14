@@ -10,6 +10,13 @@
   id: MobMercenaryBase
   description: A mercenary, merc, soldier of fortune, hired gun, dog of war.
   components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: RandomMetadata
+    nameSegments:
+    - SyndicateNamesPrefix
+    - SyndicateNamesNormal
+    - SyndicateNamesElite
   - type: Body
     prototype: HumanSyntheticOrgans # New set of synthetic organs grants faster removal of toxins from bloodstream
     requiredLegs: 2
