@@ -2,10 +2,13 @@
 - type: startingGear
   id: MobHumanoidMercenaryGearMeleeT1
   equipment:
-    gloves: ClothingHandsGlovesColorMercHatchet
+    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
     pocket1: SpaceCash500
-    pocket2: HydroponicsToolHatchet
+    gloves: ClothingHandsMercenaryGlovesCombat
     shoes: ClothingShoesBootsMercenary
+  inhand:
+    - HydroponicsToolHatchet
+    - RiotShield
 
 - type: startingGear
   id: MobHumanoidMercenaryGearRangedT1
