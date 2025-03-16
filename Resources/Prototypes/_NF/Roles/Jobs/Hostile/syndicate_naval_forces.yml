@@ -5,7 +5,7 @@
     head: ClothingHeadHatSyndieMAA
     jumpsuit: ClothingUniformJumpsuitSyndieFormalNF
     shoes: ClothingShoesBootsCombat
-    gloves: ClothingHandsGlovesColorBlackPython
+    gloves: ClothingHandsGlovesCombat
     neck: ClothingNeckScarfStripedSyndieRed
 #    mask: ClothingMaskGasSyndicate
     outerClothing: ClothingOuterCoatSyndieCapArmored
@@ -13,6 +13,7 @@
     pocket2: DoubleEmergencyAirTankFilled
   inhand:
     - PlasteelArmingSword
+    - WeaponRevolverPython
 
 - type: startingGear
   id: SyndicateNavalCaptainGearB
@@ -20,7 +21,7 @@
     head: ClothingHeadHatSyndieMAA
     jumpsuit: ClothingUniformJumpsuitSyndieFormalNF
     shoes: ClothingShoesBootsCombat
-    gloves: ClothingHandsGlovesColorBlackPython
+    gloves: ClothingHandsGlovesCombat
     neck: ClothingNeckScarfStripedSyndieRed
 #    mask: ClothingMaskGasSyndicate
     outerClothing: ClothingOuterCoatSyndieCapArmored
@@ -28,6 +29,7 @@
     pocket2: DoubleEmergencyAirTankFilled
   inhand:
     - PlasteelArmingSword
+    - WeaponRevolverPython
 
 - type: startingGear
   id: SyndicateNavalCaptainGearC
@@ -35,12 +37,14 @@
     head: ClothingHeadHatSyndieMAA
     jumpsuit: ClothingUniformJumpsuitSyndieFormalNF
     shoes: ClothingShoesBootsCombat
-    gloves: ClothingHandsGlovesColorBlackPython
+    gloves: ClothingHandsGlovesCombat
     neck: ClothingNeckScarfStripedSyndieRed
 #    mask: ClothingMaskGasSyndicate
     outerClothing: ClothingOuterCoatSyndieCapArmored
     back: ClothingBackpackSyndicateCaptainLootC
     pocket2: DoubleEmergencyAirTankFilled
+  inhand:
+    - WeaponRevolverPython
 
 - type: startingGear
   id: SyndicateNavalCaptainGearD
@@ -48,12 +52,14 @@
     head: ClothingHeadHatSyndieMAA
     jumpsuit: ClothingUniformJumpsuitSyndieFormalNF
     shoes: ClothingShoesBootsCombat
-    gloves: ClothingHandsGlovesColorBlackPython
+    gloves: ClothingHandsGlovesCombat
     neck: ClothingNeckScarfStripedSyndieRed
 #    mask: ClothingMaskGasSyndicate
     outerClothing: ClothingOuterCoatSyndieCapArmored
     back: ClothingBackpackSyndicateCaptainLootD
     pocket2: DoubleEmergencyAirTankFilled
+  inhand:
+    - WeaponRevolverPython
 
 # Engineer
 - type: startingGear
