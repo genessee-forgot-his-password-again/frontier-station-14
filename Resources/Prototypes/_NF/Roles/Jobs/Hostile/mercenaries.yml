@@ -43,7 +43,7 @@
     mask: ClothingMaskGasMercenary
     neck: ClothingNeckIFFGreen
   inhand:
-    - WeaponRifleNovaliteC1
+    - WeaponRifleNovaliteC1Expedition
 
 # Tier 2
 - type: startingGear
@@ -91,7 +91,7 @@
     jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckBlueMercenary
     neck: ClothingNeckIFFGreen
  inhand:
-    - WeaponShotgunDoubleBarrelled
+    - WeaponShotgunDoubleBarreledExpedition
 
 # Tier 3
 - type: startingGear
@@ -107,7 +107,7 @@
     jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckBlueMercenaryMedic
     neck: ClothingNeckIFFGreen
  inhand:
-    - WeaponLaserPistolNF
+    - WeaponLaserGunExpedition
     - SawElectric
 
 - type: startingGear
