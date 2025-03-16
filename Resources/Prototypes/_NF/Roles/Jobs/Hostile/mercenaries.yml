@@ -75,8 +75,8 @@
     jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckBlueMercenary
     neck: ClothingNeckIFFGreen
  inhand:
-    - WeaponRevolverArgenti
-    - WeaponRevolverArgenti
+    - WeaponRevolverArgentiExpedition
+    - WeaponRevolverArgentiExpedition
 
 - type: startingGear
   id: MobHumanoidMercenaryGearRangedAltT2
