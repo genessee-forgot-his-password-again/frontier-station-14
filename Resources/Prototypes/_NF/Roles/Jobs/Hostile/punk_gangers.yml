@@ -6,7 +6,7 @@
     belt: ClothingBeltPunkRandomized
     shoes: ClothingShoesBootsPunkRandomized
     outerClothing: ClothingOuterCoatBomberRandomized
-    pocket2: ClothingBackpackPunkLootA
+    back: ClothingBackpackPunkLootA
   inhand:
     - BaseBallBat
 
@@ -17,9 +17,10 @@
     jumpsuit: ClothingUniformRandomPunkCroptop
     belt: ClothingBeltPunkRandomized
     shoes: ClothingShoesBootsPunkRandomized
-    gloves: ClothingHandsGlovesColorBlackPistol
     outerClothing: ClothingOuterCoatBomberRandomized
-    pocket2: ClothingBackpackPunkLootB
+    back: ClothingBackpackPunkLootB
+  inhand:
+    - WeaponPistolMk58Expedition
 
 # Tier 2
 - type: startingGear
@@ -29,20 +30,21 @@
     belt: ClothingBeltPunkRandomized
     shoes: ClothingShoesBootsPunkRandomized
     outerClothing: ClothingOuterArmorPunkRandomized
-    pocket2: ClothingBackpackPunkLootA
+    back: ClothingBackpackPunkLootA
   inhand:
     - FireAxe
 
 - type: startingGear
   id: PunkGangerGearShotgun
   equipment:
-    neck: PunkHandsGlovesShotgun
     mask: ClothingMaskPunkHalf
     jumpsuit: ClothingUniformRandomPunkCroptop
     belt: ClothingBeltPunkRandomized
     shoes: ClothingShoesBootsPunkRandomized
     outerClothing: ClothingOuterCoatBomberRandomized
-    pocket2: ClothingBackpackPunkLootC
+    back: ClothingBackpackPunkLootC
+  inhand:
+    - WeaponShotgunKammererExpedition
 
 # Tier 3
 - type: startingGear
@@ -54,27 +56,27 @@
     belt: ClothingBeltPunkRandomized
     shoes: ClothingShoesBootsPunkRandomized
     outerClothing: ClothingOuterArmorElitePunkRandomized
-    pocket2: ClothingBackpackPunkLootA
+    back: ClothingBackpackPunkLootA
   inhand:
     - Sledgehammer
 
 - type: startingGear
   id: PunkGangerGearSmg
   equipment:
-    neck: PunkHandsGlovesSmg
     eyes: ClothingEyesPunkGoggles
     mask: ClothingMaskPunkHalf
     jumpsuit: ClothingUniformRandomPunkTanktop
     belt: ClothingBeltPunkRandomized
     shoes: ClothingShoesBootsPunkRandomized
     outerClothing: ClothingOuterArmorPunkRandomized
-    pocket2: ClothingBackpackPunkLootD
+    back: ClothingBackpackPunkLootD
+  inhand:
+    - WeaponSubMachineGunDrozdExpedition
 
 # Tier 4
 - type: startingGear
   id: PunkGangerGearLaser
   equipment:
-    neck: PunkHandsGlovesLaserGun
     eyes: ClothingEyesPunkInfoShades
     mask: ClothingMaskPunkHalf
     jumpsuit: ClothingUniformRandomPunkTanktop
@@ -83,3 +85,5 @@
     outerClothing: ClothingOuterArmorElitePunkRandomized
     back: PortableRecharger
     pocket2: ClothingBackpackPunkLootBoss
+  inhand:
+    - WeaponLaserCarbineExpedition
